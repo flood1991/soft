@@ -1,0 +1,12 @@
+version: '3'
+
+servises:
+  softvisiontest:
+    build: .
+    container_name: softapp
+    network_mode: host
+    port:
+      - "8000:000"
+    command: bash -c "uvicorn main:app"
+    volumes:
+      - ./soft.db:/softvisiontest/soft.db:delegated
